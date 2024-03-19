@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
 }
+
 body::-webkit-scrollbar{
     display: none;
 }
@@ -109,13 +110,22 @@ button:hover{
     margin: 15px;
     visibility: hidden;
 }
-.description p {
+.description {
     color: #b0b0ba;
+    Text-align: center;
+    display: flex;
+    align-items: center;
+}
+.description a {
+    width: 30%;
     padding-top: 5px;
+    background-color: #223;
 }
 
 .description h4 {
     text-transform: uppercase;
+    background-color: #223;
+    width: 30%;
 }
 
 input {
@@ -154,5 +164,45 @@ input:checked + label .description {
 }
 .card[for="c8"] {
     background-image: url('./img/hakis.jpg');
+}
+
+/* 
+Login
+*/
+
+.login-form {
+    width: 300px;
+    padding: 20px;
+    background-color:  rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    color: #000000; 
+
+}
+.login-form label,
+.login-form input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.login-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.login-form a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
 }
 
