@@ -1,6 +1,6 @@
 function login() {
     // Mostrar el contenedor "container"
-    document.getElementById("container").style.display = "block";
+    document.getElementById("logCont").style.display = "block";
     document.getElementById("back").style.display = "block";
     // Ocultar el contenedor "wrapper"
     document.getElementById("session").style.display = "none";
@@ -21,9 +21,11 @@ function login() {
 
 function retur() {
 
-    document.getElementById("container").style.display = "none";
+    document.getElementById("logCont").style.display = "none";
     document.getElementById("back").style.display = "none";
     document.getElementById("session").style.display = "block";
-    document.getElementById("wrapper").style.display = "block";
+    var maincon = document.getElementById("wrapper");
+    maincon.style.display = "block";
+    maincon.style.display = 'flex';
 
 }
