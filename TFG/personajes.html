@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="session.js"></script>
+    <script type="text/javascript" src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="bg_img">
+        <header>
+            <div class="logo">
+                <img src="img/Site-logo.png" onclick="retur()" alt="logo">
+            </div>
+            <nav>
+                <button type="button" onclick="login()" id="session">Iniciar Sesion</button>
+                <button type="button" onclick="retur()" id="back" style="display:none">Volver atras</button>
+            </nav>
+        </header>
+
+        <div class="content-wrapper">
+            <div class="container">
+
+            </div>
+        </div>
+
+        <div class="logCont" id="logCont">
+            <section id="login" style="display:none">
+                <form onsubmit="return login()" method="POST" class="login-form">
+                    <label for="usuario">Usuario</label>
+                    <input id="usuario" name='usuario' type="text">
+                    <label for="clave">Clave</label>
+                    <input id="clave" name="clave" type="password">
+                    <input type="submit" value="Iniciar sesión">
+                </form>
+                <a class="crear-usu" href="editUsu/nuevo.php">Crear nuevo usuario</a>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

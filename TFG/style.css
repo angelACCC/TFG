@@ -4,16 +4,19 @@
     padding: 0;
 }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
     display: none;
 }
-a, button{
+
+a,
+button {
     font-family: "Monserrat", sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: rgb(0, 0, 0);
     text-decoration: none;
 }
+
 .bg_img {
     background-image: url(img/wallpaperflare.com_wallpaperOscuri.jpg);
     background-size: cover;
@@ -22,23 +25,26 @@ a, button{
     height: 90vh;
     width: 100%;
 }
-header{
+
+header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: 30px 10%;
-    
+
 }
-.logo{
+
+.logo {
     cursor: pointer;
     margin-right: auto;
     position: absolute;
-    top: 10px; 
-    left: 10px; 
-    z-index: 1;/* Para que el logo esté por encima de la imagen del encabezado */
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    /* Para que el logo esté por encima de la imagen del encabezado */
 }
 
-button{
+button {
     padding: 9px 25px;
     background-color: rgb(211, 211, 219);
     border: none;
@@ -46,7 +52,8 @@ button{
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
-button:hover{
+
+button:hover {
     background-color: rgb(29, 150, 140);
 }
 
@@ -76,17 +83,17 @@ button:hover{
     margin: 0 10px;
     display: flex;
     align-items: flex-end;
-    transition: .6s cubic-bezier(.28,-0.03,0,.99);
-    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+    transition: .6s cubic-bezier(.28, -0.03, 0, .99);
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8);
 }
 
-.card > .row {
+.card>.row {
     color: rgb(82, 65, 238);
     display: flex;
     flex-wrap: nowrap;
 }
 
-.card > .row > .description {
+.card>.row>.description {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -99,7 +106,7 @@ button:hover{
     transition: all .3s ease;
 }
 
-.card > .row > .icon {
+.card>.row>.icon {
     background: #223;
     color: white;
     border-radius: 50%;
@@ -110,12 +117,14 @@ button:hover{
     margin: 15px;
     visibility: hidden;
 }
+
 .description {
     color: #b0b0ba;
     Text-align: center;
     display: flex;
     align-items: center;
 }
+
 .description a {
     width: 30%;
     padding-top: 5px;
@@ -132,11 +141,11 @@ input {
     display: none;
 }
 
-input:checked + label {
+input:checked+label {
     width: 600px;
 }
 
-input:checked + label .description {
+input:checked+label .description {
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
@@ -144,24 +153,31 @@ input:checked + label .description {
 .card[for="c1"] {
     background-image: url('./img/personajes.webp');
 }
+
 .card[for="c2"] {
     background-image: url('./img/locaclizaciones.jpg');
 }
+
 .card[for="c3"] {
     background-image: url('./img/banderas.jpg');
 }
+
 .card[for="c4"] {
     background-image: url('./img/barco.jpg');
 }
+
 .card[for="c5"] {
     background-image: url('./img/armas.jpg');
 }
+
 .card[for="c6"] {
     background-image: url('./img/Fruta_del_diablo.webp');
 }
+
 .card[for="c7"] {
     background-image: url('./img/Diales.webp');
 }
+
 .card[for="c8"] {
     background-image: url('./img/hakis.jpg');
 }
@@ -169,31 +185,39 @@ input:checked + label .description {
 /* 
 Login
 */
-.logCont{
-    display: none;
-}
-.login-form {
-    width: 300px;
-    padding: 20px;
-    background-color:  rgba(255, 255, 255, 0.7);
-    border-radius: 10px;
-    color: #000000; 
+.logCont {
+    text-align: center;
 
 }
+
+.login-form {
+    width: 300px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    color: #000000;
+
+}
+
 .login-form label,
 .login-form input {
     display: block;
     margin-bottom: 10px;
+    padding-left: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .login-form input[type="submit"] {
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     border: none;
     background-color: #007bff;
     color: white;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 30px;
+
 }
 
 .login-form input[type="submit"]:hover {
@@ -207,4 +231,52 @@ Login
     color: #007bff;
     text-decoration: none;
 }
+
+#usuario,
+#clave {
+    border-radius: 20px;
+}
+
+/* 
+Personajes
+*/
+
+.content-wrapper .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 80%;
+
+}
+
+.box {
+    width: calc(25% - 20px); 
+    max-width: 200px; 
+    height: 100px; 
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%; 
+    }
+
+    .box {
+        width: calc(33.33% - 20px); 
+    }
+}
+
+@media (max-width: 576px) {
+    .box {
+        width: calc(50% - 20px); 
+    }
+}
+
+
 

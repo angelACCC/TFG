@@ -1,0 +1,151 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.container');
+    const loadMoreButton = document.getElementById('load-more');
+    let characters = []; // Almacenar los personajes recuperados de la API
+    let offset = 0; // Offset inicial para la paginación
+    const limit = 12; // Cantidad de elementos por página
+  
+    // Función para cargar elementos desde la API
+    const loadItems = () => {
+      fetch(`https://api.api-onepiece.com/v2/characters/en?offset=${offset}&limit=${limit}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Datos recibidos:', data);
+  
+          // Agregar los nuevos personajes recuperados al final de la lista
+          characters = characters.concat(data);
+  
+          // Limpiar el contenedor antes de agregar nuevos elementos
+          container.innerHTML = '';
+  
+          // Mostrar solo los personajes según el límite
+          const charactersToShow = characters.slice(offset, offset + limit);
+  
+          // Iterar sobre los datos obtenidos y crear divs para cada elemento
+          charactersToShow.forEach((character, index) => {
+            const box = document.createElement('div');
+            box.classList.add('box');
+            const characterNumber = offset + index + 1; // Número absoluto del personaje
+            box.textContent = `${characterNumber}: ${character.name}`;
+            container.appendChild(box);
+  
+            // Agregar evento de clic al elemento .box
+            box.addEventListener('click', () => {
+              // Redirigir a otro HTML que muestra información sobre el personaje
+              window.location.href = `personaje.html?id=${character.id}`;
+            });
+          });
+  
+          // Si no hay más personajes por cargar, deshabilitar el botón de carga
+          if (characters.length <= offset + limit) {
+            loadMoreButton.disabled = true;
+            loadMoreButton.textContent = "No hay más personajes";
+          }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    };
+  
+    // Cargar los primeros elementos al cargar la página
+    loadItems();
+  
+    // Evento click para cargar más elementos
+    loadMoreButton.addEventListener('click', () => {
+      offset += limit; // Incrementar el offset para cargar los siguientes elementos
+      loadItems(); // Llamar a la función loadItems() para cargar más elementos
+    });
+  });
+  
+
+
+
+
+
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.container');
+    let loadMoreButton; // Variable para almacenar el botón "Mostrar más"
+    let characters = []; // Almacenar los personajes recuperados de la API
+    let offset = 0; // Offset inicial para la paginación
+    const limit = 12; // Cantidad de elementos por página
+  
+    // Función para cargar elementos desde la API
+    const loadItems = () => {
+      fetch(`https://api.api-onepiece.com/v2/characters/en?offset=${offset}&limit=${limit}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Datos recibidos:', data);
+  
+          // Agregar los nuevos personajes recuperados al final de la lista
+          characters = characters.concat(data);
+  
+          // Mostrar solo los personajes según el límite
+          const charactersToShow = characters.slice(offset, offset + limit);
+  
+          // Limpiar el contenedor antes de agregar los nuevos elementos
+          if (offset === 0) {
+            container.innerHTML = ''; // Solo limpiar el contenedor si es la primera carga
+          }
+  
+          // Iterar sobre los datos obtenidos y crear divs para cada elemento
+          charactersToShow.forEach((character, index) => {
+            const box = document.createElement('div');
+            box.classList.add('box');
+            const characterNumber = offset + index + 1; // Número absoluto del personaje
+            box.textContent = `${characterNumber}: ${character.name}`;
+            container.appendChild(box);
+  
+            // Agregar evento de clic al elemento .box
+            box.addEventListener('click', () => {
+              // Redirigir a otro HTML que muestra información sobre el personaje
+              window.location.href = `personaje.html?id=${character.id}`;
+            });
+          });
+  
+          // Si no hay más personajes por cargar, deshabilitar el botón de carga
+          if (characters.length <= offset + limit) {
+            if (loadMoreButton) {
+              loadMoreButton.disabled = true;
+              loadMoreButton.textContent = "No hay más personajes";
+            }
+          }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    };
+  
+    // Cargar los primeros elementos al cargar la página
+    loadItems();
+  
+    // Crear el botón "Mostrar más"
+    loadMoreButton = document.createElement('button');
+    loadMoreButton.textContent = "Mostrar más";
+    loadMoreButton.classList.add('load-more');
+  
+    // Evento click para cargar más elementos
+    loadMoreButton.addEventListener('click', () => {
+      offset += limit; // Incrementar el offset para cargar los siguientes elementos
+      loadItems(); // Llamar a la función loadItems() para cargar más elementos
+    });
+  
+    // Crear un div contenedor para envolver tanto el contenedor de elementos como el botón
+    const wrapperDiv = document.createElement('div');
+    wrapperDiv.classList.add('wrapper');
+  
+    // Insertar el contenedor de elementos y el botón dentro del div contenedor
+    wrapperDiv.appendChild(container);
+    wrapperDiv.appendChild(loadMoreButton);
+  
+    // Insertar el div contenedor en el documento
+    document.body.appendChild(wrapperDiv);
+  });
+  

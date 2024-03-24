@@ -3,6 +3,7 @@ function login() {
     document.getElementById("logCont").style.display = "block";
     document.getElementById("back").style.display = "block";
     // Ocultar el contenedor "wrapper"
+    document.getElementById("cont-perso").style.display = "none";
     document.getElementById("session").style.display = "none";
     document.getElementById("wrapper").style.display = "none";
 
@@ -24,6 +25,7 @@ function retur() {
     document.getElementById("logCont").style.display = "none";
     document.getElementById("back").style.display = "none";
     document.getElementById("session").style.display = "block";
+    document.getElementById("cont-perso").style.display = "flex";
     var maincon = document.getElementById("wrapper");
     maincon.style.display = "block";
     maincon.style.display = 'flex';
