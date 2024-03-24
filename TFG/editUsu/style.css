@@ -1,0 +1,87 @@
+
+
+body{
+    background-color: #007bff;
+}
+
+/* Estilo para el contenedor del título, si es necesario */
+.contenedor-titulo {
+    text-align: center; 
+}
+
+/* Estilo para el título (h1) ajustado */
+.titulo-registro {
+    display: inline-block; 
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    padding: 10px 20px; 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+}
+
+/* 
+Estilo general del formulario 
+*/
+
+.formulario-registro {
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px; 
+    color: #000000; 
+    margin: auto; 
+}
+
+/* 
+Estilo de las etiquetas y los campos de entrada 
+*/
+
+.formulario-registro label,
+.formulario-registro input {
+    display: block; 
+    margin-bottom: 10px; 
+}
+
+/* 
+Personalización de los campos de entrada 
+*/
+
+.formulario-registro input[type="text"],
+.formulario-registro input[type="password"] {
+    width: calc(100% - 20px); 
+    padding: 10px;
+    border-radius: 20px; 
+    border: 1px solid #ccc; 
+}
+
+/* 
+Estilo del botón de envío 
+*/
+
+.formulario-registro button {
+    width: 100%;
+    padding: 10px; 
+    border: none;
+    background-color: #007bff; 
+    color: white; 
+    cursor: pointer; 
+    border-radius: 30px;
+}
+
+.formulario-registro button:hover {
+    background-color: #0056b3; 
+}
+
+
+/* Estilo para los símbolos informativos */
+.info {
+    display: inline-block;
+    margin-left: 5px; 
+    cursor: help; 
+}
+
+/* Opcional: Puedes añadir un poco de estilo adicional para hacerlo resaltar */
+.info:hover {
+    color: #0056b3;
+}

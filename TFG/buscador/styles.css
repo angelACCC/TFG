@@ -1,0 +1,36 @@
+body{
+    background-color: aqua;
+}
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    text-align: center;
+    background-color:  rgba(255, 255, 255, 0.7);
+}
+
+#searchInput {
+    width: 96%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    
+}
+
+#results {
+    list-style-type: none;
+    padding: 0;
+}
+
+#results li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+#results li:last-child {
+    border-bottom: none;
+}
