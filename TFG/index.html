@@ -10,16 +10,15 @@
 </head>
 
 <body>
-    <div class="bg_img" >
+    <div class="bg_img">
         <header>
 
             <div class="logo">
                 <img src="img/Site-logo.png" onclick="retur()" alt="logo">
             </div>
             <nav>
-
-                    <button type="button" onclick="login()" id="session">Iniciar Sesion</button>
-                    <button type="button" onclick="retur()" id="back" style="display:none">Volver atras</button>
+                <button type="button" onclick="login()" id="session">Iniciar Sesion</button>
+                <button type="button" onclick="retur()" id="back" style="display:none">Volver atras</button>
             </nav>
 
         </header>
@@ -32,7 +31,7 @@
                         <div class="icon">1</div>
                         <div class="description">
                             <h4>PERSONAJES</h4>
-                            <a href="personajes.html">SEE MORE</a>
+                            <a href="vista/personajes.html">SEE MORE</a>
                         </div>
                     </div>
                 </label>
@@ -42,7 +41,7 @@
                         <div class="icon">2</div>
                         <div class="description">
                             <h4>LOCALIZACIONES</h4>
-                            <p>SEE MORE</p>
+                            <a href="vista/localizaciones.html">SEE MORE</a>
                         </div>
                     </div>
                 </label>
@@ -52,7 +51,7 @@
                         <div class="icon">3</div>
                         <div class="description">
                             <h4>CREWS</h4>
-                            <p>SEE MORE</p>
+                            <a href="vista/crews.html">SEE MORE</a>
                         </div>
                     </div>
                 </label>
@@ -62,7 +61,7 @@
                         <div class="icon">4</div>
                         <div class="description">
                             <h4>BARCOS</h4>
-                            <p>SEE MORE</p>
+                            <a href="vista/barcos.html">SEE MORE</a>
                         </div>
                     </div>
                 </label>
@@ -71,8 +70,8 @@
                     <div class="row">
                         <div class="icon">5</div>
                         <div class="description">
-                            <h4>WEAPONS</h4>
-                            <p>SEE MORE</p>
+                            <h4>ARMAS</h4>
+                            <a href="vista/armas.html">SEE MORE</a>
                         </div>
                     </div>
                 </label>
@@ -82,7 +81,7 @@
                         <div class="icon">6</div>
                         <div class="description">
                             <h4>FRUTAS</h4>
-                            <p>SEE MORE</p>
+                            <a href="vista/frutas.html">SEE MORE</a>
                         </div>
                     </div>
                 </label>
@@ -92,7 +91,7 @@
                         <div class="icon">7</div>
                         <div class="description">
                             <h4>DIALS</h4>
-                            <p>SEE MORE</p>
+                            <a href="vista/dials.html">SEE MORE</a>
                         </div>
                     </div>
                 </label>
@@ -102,14 +101,14 @@
                         <div class="icon">8</div>
                         <div class="description">
                             <h4>HAKIS</h4>
-                            <p>SEE MORE</p>
+                            <a href="vista/hakis.html">SEE MORE</a>
                         </div>
                     </div>
                 </label>
             </div>
         </div>
 
-        <div class="logCont" id="logCont" >
+        <div class="logCont" id="logCont">
             <section id="login" style="display:none">
                 <form onsubmit="return login()" method="POST" class="login-form">
                     <label for="usuario">Usuario</label>
@@ -121,9 +120,15 @@
                 <a href="editUsu/nuevo.php">Crear nuevo usuario</a>
             </section>
         </div>
-
     </div>
-
+    <footer>
+        <div class="olas">
+            <div class="ola" id="ola1"></div>
+            <div class="ola" id="ola2"></div>
+            <div class="ola" id="ola3"></div>
+            <div class="ola" id="ola4"></div>
+        </div>
+    </footer>
 </body>
 
 </html>
