@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+   
+}
+
+.card {
+    flex: 1;
+    
+}
+
+.card label {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+       
+    }
+}
+
+.contenedor {
+    display: flex;
+    background-color: black;
+}
+
+.card {
+    width: 50%;
+    position: relative;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.description {
+    padding: 10px;
+}
+
+.description h4 {
+    margin: 0;
+}
+
+.description a {
+    display: block;
+    text-align: center;
+}
