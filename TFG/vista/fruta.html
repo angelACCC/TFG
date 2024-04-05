@@ -7,14 +7,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylePer.css">
-    <title>Detalles del Personaje</title>
+    <title>Frutas del diablo</title>
 </head>
 
 <body>
 
 
     <div class="contenedor-centralizado">
-        <h1 class="titulo-registro">Detalles del Personaje</h1>
+        <h1 class="titulo-registro">Frutas del diablo</h1>
         <div id="personaje-det">
           <!-- Aquí se cargarán los detalles del personaje -->
         </div>
@@ -26,20 +26,17 @@
         const characterId = urlParams.get('id');
 
         // Hacer una solicitud a la API con el ID del personaje y mostrar los detalles
-        fetch(`https://api.api-onepiece.com/v2/characters/en/${characterId}`)
+        fetch(`https://api.api-onepiece.com/v2/fruits/en/${characterId}`)
             .then(response => response.json())
             .then(data => {
                 const personajeDetInfo = document.getElementById('personaje-det');
                 personajeDetInfo.innerHTML = `               
         <h2>Nombre: ${data.name}</h2>
-        <p>Puesto: ${data.job}</p>
-        <p>Altura: ${data.size}</p>
-        <p>Cumple: ${data.birthday}</p>
-        <p>Edad: ${data.age}</p>
-        <p>Recompensa: ${data.bounty}</p>
-        <p>Estatus: ${data.status}</p>
-        <p>Nombre de la crew: ${data.crew.name}</p>
-        <a href="personajes.html" class="button">back</a>
+        <p>Nombre Roman: ${data.roman_name}</p>
+        <p>Tipo: ${data.type}</p>
+        <p>Descripcion: ${data.description}</p>
+        <img src="${data.filename}" alt="">
+        <a href="frutas.html" class="button">back</a>
       `;
             })
             .catch(error => console.error('Error al cargar los detalles:', error));

@@ -6,48 +6,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Función para cargar elementos desde la API
   const loadItems = () => {
-    fetch(`https://api.api-onepiece.com/v2/characters/en?offset=${offset}&limit=${limit}`)
-      .then(response => response.json())
-      .then(data => {
-        console.log('Datos recibidos:', data);
+      fetch(`https://api.api-onepiece.com/v2/characters/en?offset=${offset}&limit=${limit}`)
+          .then(response => response.json())
+          .then(data => {
+              console.log('Datos recibidos:', data);
 
-        // Concatenar los nuevos personajes al arreglo existente
-        characters = characters.concat(data);
+              // Actualizar la lista de personajes
+              characters = data;
 
-        // Mostrar los personajes
-        characters.slice(offset, offset + limit).forEach(character => {
+              // Mostrar los personajes
+              mostrarPersonajes();
+          })
+          .catch(error => console.error('Error fetching data:', error));
+  };
+
+  // Función para mostrar los personajes
+  const mostrarPersonajes = () => {
+      container.innerHTML = ''; // Limpiar el contenedor
+
+      characters.forEach(character => {
           const box = document.createElement('div');
           box.classList.add('box');
           box.textContent = `${character.name}`;
-          container.insertBefore(box, loadMoreButton);
+          container.appendChild(box);
 
           box.addEventListener('click', () => {
-            window.location.href = `personaje.html?id=${character.id}`;
+              window.location.href = `personaje.html?id=${character.id}`;
           });
-        });
-
-        // Ajustar el estado del botón según la cantidad de personajes cargados
-        if (characters.length <= offset + limit) {
-          loadMoreButton.disabled = true;
-          loadMoreButton.textContent = "No hay más personajes";
-        } else {
-          loadMoreButton.disabled = false;
-          loadMoreButton.textContent = "Mostrar más";
-        }
-      })
-      .catch(error => console.error('Error fetching data:', error));
+      });
   };
 
-  // Inicialmente, el botón "Mostrar más" no existe, así que lo creamos aquí
-  const loadMoreButton = document.createElement('button');
-  loadMoreButton.textContent = "Mostrar más";
-  loadMoreButton.classList.add('load-more');
-  container.appendChild(loadMoreButton);
+  // Función para buscar personajes
+  window.buscarPersonaje = () => {
+      const searchTerm = document.getElementById('input-busqueda').value.trim().toLowerCase();
 
-  loadMoreButton.addEventListener('click', () => {
-    offset += limit;
-    loadItems();
-  });
+      // Filtrar personajes basados en la búsqueda del usuario
+      const resultados = characters.filter(personaje => {
+          return personaje.name.toLowerCase().includes(searchTerm);
+      });
+
+      // Mostrar los resultados de la búsqueda
+      container.innerHTML = ''; // Limpiar el contenedor
+
+      resultados.forEach(character => {
+          const box = document.createElement('div');
+          box.classList.add('box');
+          box.textContent = `${character.name}`;
+          container.appendChild(box);
+
+          box.addEventListener('click', () => {
+              window.location.href = `personaje.html?id=${character.id}`;
+          });
+      });
+  };
 
   // Cargar los primeros elementos al cargar la página
   loadItems();

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Función para cargar elementos desde la API
     const loadItems = () => {
-      fetch(`https://api.api-onepiece.com/v2/crews/en?offset=${offset}&limit=${limit}`)
+      fetch(`https://api.api-onepiece.com/v2/swords/en?offset=${offset}&limit=${limit}`)
         .then(response => response.json())
         .then(data => {
           console.log('Datos recibidos:', data);
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             container.insertBefore(box, loadMoreButton);
   
             box.addEventListener('click', () => {
-              window.location.href = `crew.html?id=${character.id}`;
+              window.location.href = `personaje.html?id=${character.id}`;
             });
           });
   

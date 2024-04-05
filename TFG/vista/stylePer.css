@@ -2,30 +2,25 @@ body {
     background-color: #007bff;
 }
 
-.titulo-registro {
-    display: inline-block;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 30px;
-    padding: 10px 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 35%;
-    align-items: center;
+.contenedor-centralizado {
+    text-align: center; 
 }
 
-/* 
-Personaje
-*/
-
-#personaje-det {
-
-    width: 300px;
-    padding: 20px;
+.titulo-registro {
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 30px;
-    color: #000000;
-    margin: auto;
+    padding: 20px;
+    width: 400px;
+    margin: 0 auto; 
+}
+
+#personaje-det {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    padding: 20px;
+    width: 400px;
+    text-align: left;
+    margin: 20px auto; 
 }
 
 a.button {
@@ -46,6 +41,7 @@ a.button:hover {
 
 a.button:focus {
     outline: none;
+  
 }
 
 a.button:active {

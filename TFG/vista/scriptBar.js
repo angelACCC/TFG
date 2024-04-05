@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             container.insertBefore(box, loadMoreButton);
   
             box.addEventListener('click', () => {
-              window.location.href = `personaje.html?id=${character.id}`;
+              window.location.href = `barco.html?id=${character.id}`;
             });
           });
   
