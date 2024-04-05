@@ -149,3 +149,131 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(wrapperDiv);
   });
   
+
+
+
+//   <!DOCTYPE html>
+// <html lang="es">
+
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <link rel="stylesheet" href="stylePer.css">
+//     <title>Frutas del Diablo</title>
+// </head>
+
+// <body>
+
+//     <div class="contenedor-centralizado">
+//         <h1 class="titulo-registro">Frutas del hakis</h1>
+//         <div id="detalles-personaje">
+//             <!-- Aquí se cargarán los detalles del personaje -->
+//         </div>
+//     </div>
+
+//     <script>
+//         async function traducirTexto(texto, idiomaOrigen, idiomaDestino) {
+//             const url = 'https://deepl-translator.p.rapidapi.com/translate';
+//             const options = {
+//                 method: 'POST',
+//                 headers: {
+//                     'content-type': 'application/json',
+//                     'X-RapidAPI-Key': '39175e90a3msh183f2966f4f2f61p160928jsn06d0d7ce707d',
+//                     'X-RapidAPI-Host': 'deepl-translator.p.rapidapi.com'
+//                 },
+//                 body: JSON.stringify({
+//                     text: texto,
+//                     source_lang: 'EN',
+//                     target_lang: 'ES'
+//                 })
+//             };
+
+//             try {
+//                 const response = await fetch(url, options);
+//                 const result = await response.json();
+//                 return result.translations[0].text;
+//             } catch (error) {
+//                 console.error(error);
+//                 return null;
+//             }
+//         }
+
+//         document.addEventListener('DOMContentLoaded', async () => {
+//             // Obtener el ID del personaje de la URL
+//             const urlParams = new URLSearchParams(window.location.search);
+//             const characterId = urlParams.get('id');
+
+//             // Realizar una solicitud a la API con el ID del personaje y mostrar los detalles
+//             fetch(`https://api.api-onepiece.com/v2/hakis/en/${characterId}`)
+//                 .then(response => response.json())
+//                 .then(async data => {
+//                     // Traducir los detalles del personaje al español
+//                     const descripcionTraducida = await traducirTexto(data.description, 'EN', 'ES');
+
+//                     // Mostrar los detalles del personaje con la descripción traducida
+//                     const detallesPersonaje = document.getElementById('detalles-personaje');
+//                     detallesPersonaje.innerHTML = `               
+//                         <h2>Nombre: ${data.name}</h2>
+//                         <p>Nombre Romano: ${data.roman_name}</p>
+//                         <p>Descripción: ${descripcionTraducida}</p>
+//                         <a href="hakis.html" class="button">volver</a>
+//                     `;
+//                 })
+//                 .catch(error => console.error('Error al cargar los detalles:', error));
+//         });
+//     </script>
+
+// </body>
+
+// </html>
+
+
+
+// <!DOCTYPE html>
+// <html lang="en">
+
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>Personajes</title>
+//     <link rel="stylesheet" href="../style.css">
+//     <script type="text/javascript" src="../session.js"></script>
+//     <script type="text/javascript" src="scriptPer.js" defer></script>
+// </head>
+
+// <body>
+//     <div class="bg_img">
+//         <header>
+//             <div class="logo">
+//                 <a href="../index.html"><img src="../img/Site-logo.png" alt="logo"></a>
+//             </div>
+//             <nav>
+//                 <button type="button" onclick="login2()" id="session">Iniciar Sesion</button>
+//                 <button type="button" onclick="retur2()" id="back" style="display:none">Volver atras</button>
+//             </nav>
+//         </header>
+
+//         <div class="content-wrapper">
+//             <div class="container">
+
+//             </div>
+//         </div>
+
+//         <div class="logCont" id="logCont">
+//             <section id="login" style="display:none">
+//                 <form onsubmit="return login()" method="POST" class="login-form">
+//                     <label for="usuario">Usuario</label>
+//                     <input id="usuario" name='usuario' type="text">
+//                     <label for="clave">Clave</label>
+//                     <input id="clave" name="clave" type="password">
+//                     <input type="submit" value="Iniciar sesión">
+//                 </form>
+//                 <a class="crear-usu" href="editUsu/nuevo.php">Crear nuevo usuario</a>
+//             </section>
+//         </div>
+//     </div>
+
+
+// </body>
+
+// </html>

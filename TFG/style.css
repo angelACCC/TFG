@@ -22,7 +22,7 @@ button {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100%;
+    height: 100vh;
     width: 100%;
 }
 
@@ -41,7 +41,7 @@ header {
     top: 10px;
     left: 10px;
     z-index: 1;
-    /* Para que el logo esté por encima de la imagen del encabezado */
+   
 }
 
 button {
@@ -136,7 +136,9 @@ button:hover {
     background-color: #223;
     width: 30%;
 }
-
+#input-busqueda{
+    display: block;
+}
 input {
     display: none;
 }
