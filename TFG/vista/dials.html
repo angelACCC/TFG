@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personajes</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="stbuscador.css">
     <script type="text/javascript" src="js/scriptDial.js" defer></script>
 </head>
 
@@ -16,29 +17,42 @@
                 <a href="../index.html"><img src="../img/Site-logo.png" alt="logo"></a>
             </div>
             <nav>
-                <button type="button" onclick="login()" id="session">Iniciar Sesion</button>
-                <button type="button" onclick="retur()" id="back" style="display:none">Volver atras</button>
+                <form action="login/login.html" method="post">
+                    <button type="submit">Iniciar session</button>
+                </form>
+                
             </nav>
         </header>
 
+        <!-- Aquí está el contenedor del buscador -->
+        <div id="buscador">
+            <!-- Campo de entrada de texto para la búsqueda -->
+            <input type="text" id="input-busqueda" placeholder="Buscar personaje..." oninput="buscarPersonaje()">
+            <!-- Botón de búsqueda -->
+        </div>
+
         <div class="content-wrapper">
             <div class="container">
-
+                <!-- Aquí se mostrarán los resultados de la búsqueda -->
+                <div id="resultados-busqueda">
+                    <!-- Los resultados de la búsqueda se mostrarán aquí -->
+                </div>
             </div>
+            <br>
+        </div>
+    </div>
+
+    <div id="comment-section">
+        <!-- Sección de comentarios -->
+        <div id="comments-list">
+            <!-- Aquí se mostrarán los comentarios -->
         </div>
 
-        <div class="logCont" id="logCont">
-            <section id="login" style="display:none">
-                <form onsubmit="return login()" method="POST" class="login-form">
-                    <label for="usuario">Usuario</label>
-                    <input id="usuario" name='usuario' type="text">
-                    <label for="clave">Clave</label>
-                    <input id="clave" name="clave" type="password">
-                    <input type="submit" value="Iniciar sesión">
-                </form>
-                <a class="crear-usu" href="editUsu/nuevo.php">Crear nuevo usuario</a>
-            </section>
-        </div>
+        <!-- Formulario de comentarios -->
+        <form id="comment-form">
+            <textarea id="comment-text" placeholder="Escribe tu comentario..." required></textarea>
+            <button type="submit">Comentar</button>
+        </form>
     </div>
 
 

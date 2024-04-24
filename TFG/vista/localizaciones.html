@@ -17,15 +17,20 @@
                 <a href="../index.html"><img src="../img/Site-logo.png" alt="logo"></a>
             </div>
             <nav>
-                <button type="button" onclick="login()" id="session">Iniciar Sesion</button>
-                <button type="button" onclick="retur()" id="back" style="display:none">Volver atras</button>
+                <form action="login/login.html" method="post">
+                    <button type="submit">Iniciar session</button>
+                </form>
+                
             </nav>
         </header>
+
+        <!-- Aquí está el contenedor del buscador -->
         <div id="buscador">
             <!-- Campo de entrada de texto para la búsqueda -->
             <input type="text" id="input-busqueda" placeholder="Buscar personaje..." oninput="buscarPersonaje()">
             <!-- Botón de búsqueda -->
         </div>
+
         <div class="content-wrapper">
             <div class="container">
                 <!-- Aquí se mostrarán los resultados de la búsqueda -->
@@ -35,6 +40,19 @@
             </div>
             <br>
         </div>
+    </div>
+
+    <div id="comment-section">
+        <!-- Sección de comentarios -->
+        <div id="comments-list">
+            <!-- Aquí se mostrarán los comentarios -->
+        </div>
+
+        <!-- Formulario de comentarios -->
+        <form id="comment-form">
+            <textarea id="comment-text" placeholder="Escribe tu comentario..." required></textarea>
+            <button type="submit">Comentar</button>
+        </form>
     </div>
 </body>
 
