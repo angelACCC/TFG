@@ -1,103 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personajes</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="stbuscador.css">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="stbuscador.css" />
     <script type="text/javascript" src="js/scriptPer.js" defer></script>
-</head>
+  </head>
 
-<body>
-    <div class="bg_img">
+  <body>
+    <main>
+      <div class="bg_img">
         <header>
-            <div class="logo">
-                <a href="../index.html"><img src="../img/Site-logo.png" alt="logo"></a>
-            </div>
-            <nav>
-                <form action="login/login.html" method="post">
-                    <button type="submit">Iniciar session</button>
-                </form>
-                
-            </nav>
+          <div class="logo">
+            <a href="../index.html"
+              ><img src="../img/Site-logo.png" alt="logo"
+            /></a>
+          </div>
+          <nav>
+            <form action="login/login.html" method="post">
+              <button type="submit">Iniciar session</button>
+            </form>
+          </nav>
         </header>
 
         <!-- Aquí está el contenedor del buscador -->
         <div id="buscador">
-            <!-- Campo de entrada de texto para la búsqueda -->
-            <input type="text" id="input-busqueda" placeholder="Buscar personaje..." oninput="buscarPersonaje()">
-            <!-- Botón de búsqueda -->
+          <!-- Campo de entrada de texto para la búsqueda -->
+          <input
+            type="text"
+            id="input-busqueda"
+            placeholder="Buscar personaje..."
+            oninput="buscarPersonaje()"
+          />
+          <!-- Botón de búsqueda -->
         </div>
 
         <div class="content-wrapper">
-            <div class="container">
-                <!-- Aquí se mostrarán los resultados de la búsqueda -->
-                <div id="resultados-busqueda">
-                    <!-- Los resultados de la búsqueda se mostrarán aquí -->
-                </div>
+          <div class="container">
+            <!-- Aquí se mostrarán los resultados de la búsqueda -->
+            <div id="resultados-busqueda">
+              <!-- Los resultados de la búsqueda se mostrarán aquí -->
             </div>
-            <br>
+          </div>
+          <br />
         </div>
-    </div>
+      </div>
 
-    <div id="comment-section">
-        <!-- Sección de comentarios -->
-        <div id="comments-list">
-            <!-- Aquí se mostrarán los comentarios -->
-        </div>
-
-        <!-- Formulario de comentarios -->
-        <form id="comment-form">
-            <textarea id="comment-text" placeholder="Escribe tu comentario..." required></textarea>
+        <section id="comment-section">
+          <form id="comment-form">
+            <textarea
+              id="comment-text"
+              placeholder="Escribe tu comentario..."
+              required
+            ></textarea>
             <button type="submit">Comentar</button>
-        </form>
-    </div>
+          </form>
+          <div class="comentarios" id="comments-list">
+            <!-- Los comentarios se generarán aquí dinámicamente -->
+          </div>
+        </section>
 
-    <script>
-        // Simulación de comentarios
-        var comments = [
-            { user: "Usuario1", content: "¡Este es un comentario genial!" },
-            { user: "Usuario2", content: "Me encanta este sitio web." }
-            // Puedes agregar más comentarios si lo deseas
-        ];
+    </main>
+    <!-- <footer>
+        
+    </footer> -->
 
-        // Función para mostrar los comentarios en la página
-        function displayComments() {
-            var commentsList = document.getElementById('comments-list');
-            commentsList.innerHTML = ''; // Limpiamos los comentarios actuales
-
-            comments.forEach(function(comment) {
-                var commentDiv = document.createElement('div');
-                commentDiv.textContent = comment.user + ': ' + comment.content;
-                commentsList.appendChild(commentDiv);
-            });
-        }
-
-        // Mostrar los comentarios al cargar la página
-        displayComments();
-
-        // Manejar el envío de comentarios
-        var commentForm = document.getElementById('comment-form');
-        commentForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
-
-            // Obtener el texto del comentario
-            var commentText = document.getElementById('comment-text').value;
-
-            // Aquí deberías enviar el comentario al servidor si el usuario está logado
-            // y luego actualizar la lista de comentarios. Por ahora, simplemente agregaremos el comentario a la lista simulada.
-            var newComment = { user: "Usuario Actual", content: commentText };
-            comments.push(newComment);
-            displayComments();
-
-            // Limpiar el campo de texto después de enviar el comentario
-            document.getElementById('comment-text').value = '';
-        });
-    </script>
-
-</body>
-
+    <script src="js/coment.js"></script>
+  </body>
 </html>
