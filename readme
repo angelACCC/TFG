@@ -1,0 +1,450 @@
+
+
+
+
+
+
+
+
+
+
+
+
+// $cod = $_POST['codProd'];
+// $unidades = (int) $_POST['unidades'];
+// /*si existe el código sumamos las unidades*/
+// if (isset($_SESSION['carrito'][$cod])) {
+//     $_SESSION['carrito'][$cod] += $unidades;
+// } else {
+//     $_SESSION['carrito'][$cod] = $unidades;
+// }
+// echo "<script>alert('Producto añadido al carrito'); window.location.href = 'productos.php?id=$codCat';</script>";
+
+
+
+
+
+
+<?php
+function crearFormulario($texto, $cod) {
+    return "
+    <form action='tu_script_php.php' method='post'>
+        <input type='hidden' name='cod' value='$cod'>
+        <input type='number' name='unidades' value='1'>
+        <input type='submit' value='$texto'>
+    </form>";
+}
+
+function crearFila($campos) {
+    $fila = "<tr>";
+    foreach ($campos as $campo) {
+        $fila .= "<td>$campo</td>";
+    }
+    $fila .= "</tr>";
+    return $fila;
+}
+?>
+
+<body>
+    <?php
+    if (!empty($productos)) {
+        foreach ($productos as $producto) {
+            echo "<ul>
+                    <li>
+                        <p>
+                            {$producto['nombre']} <br>
+                            Descripcion: {$producto['descripcion']} <br>
+                            Precio: {$producto['precio']} <br>
+                            " . crearFormulario("Comprar", $producto['codProd']) . "
+                        </p>
+                    </li>
+                </ul>";
+        }
+    } else {
+        echo "No se encontraron productos en esta categoría.";
+    }
+    ?>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+function crearFormulario($texto, $cod, $funcion) {
+  $formu = "<form method='post'>";
+  $formu .= "<input type='hidden' name='cod' value='$cod'>";
+  $formu .= "<input type='number' name='unidades' value='1'>";
+  $formu .= "<input type='submit' value='$texto' onclick='$funcion'>";
+  $formu .= "</form>";
+  return $formu;
+}
+
+function crear_fila($campos, $tipo) {
+  $fila = "<tr>";
+  foreach ($campos as $campo) {
+      $fila .= "<$tipo>$campo</$tipo>";
+  }
+  $fila .= "</tr>";
+  return $fila;
+}
+
+<body>
+    <?php
+    if (!empty($productos)) {
+        foreach ($productos as $producto): ?>
+            <ul>
+                <li>
+                    <p>
+                        <?php echo $producto['nombre'] ?> <br>
+                        Descripcion:
+                        <?php echo $producto['descripcion'] ?>
+                        <br>
+                        Precio:
+                        <?php echo $producto['precio'] ?>
+                        <!-- Aquí añadimos el formulario generado -->
+                        <?php echo crearFormulario("Comprar", $producto['codProd'], "funcionJavaScript();"); ?>
+                    </p>
+                </li>
+            </ul>
+            <?php
+        endforeach;
+    } else {
+        echo "No se encontraron productos en esta categoría.";
+    }
+    ?>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.container');
+    const loadMoreButton = document.getElementById('load-more');
+    let characters = []; // Almacenar los personajes recuperados de la API
+    let offset = 0; // Offset inicial para la paginación
+    const limit = 12; // Cantidad de elementos por página
+  
+    // Función para cargar elementos desde la API
+    const loadItems = () => {
+      fetch(`https://api.api-onepiece.com/v2/characters/en?offset=${offset}&limit=${limit}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Datos recibidos:', data);
+  
+          // Agregar los nuevos personajes recuperados al final de la lista
+          characters = characters.concat(data);
+  
+          // Limpiar el contenedor antes de agregar nuevos elementos
+          container.innerHTML = '';
+  
+          // Mostrar solo los personajes según el límite
+          const charactersToShow = characters.slice(offset, offset + limit);
+  
+          // Iterar sobre los datos obtenidos y crear divs para cada elemento
+          charactersToShow.forEach((character, index) => {
+            const box = document.createElement('div');
+            box.classList.add('box');
+            const characterNumber = offset + index + 1; // Número absoluto del personaje
+            box.textContent = `${characterNumber}: ${character.name}`;
+            container.appendChild(box);
+  
+            // Agregar evento de clic al elemento .box
+            box.addEventListener('click', () => {
+              // Redirigir a otro HTML que muestra información sobre el personaje
+              window.location.href = `personaje.html?id=${character.id}`;
+            });
+          });
+  
+          // Si no hay más personajes por cargar, deshabilitar el botón de carga
+          if (characters.length <= offset + limit) {
+            loadMoreButton.disabled = true;
+            loadMoreButton.textContent = "No hay más personajes";
+          }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    };
+  
+    // Cargar los primeros elementos al cargar la página
+    loadItems();
+  
+    // Evento click para cargar más elementos
+    loadMoreButton.addEventListener('click', () => {
+      offset += limit; // Incrementar el offset para cargar los siguientes elementos
+      loadItems(); // Llamar a la función loadItems() para cargar más elementos
+    });
+  });
+  
+
+
+
+
+
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.container');
+    let loadMoreButton; // Variable para almacenar el botón "Mostrar más"
+    let characters = []; // Almacenar los personajes recuperados de la API
+    let offset = 0; // Offset inicial para la paginación
+    const limit = 12; // Cantidad de elementos por página
+  
+    // Función para cargar elementos desde la API
+    const loadItems = () => {
+      fetch(`https://api.api-onepiece.com/v2/characters/en?offset=${offset}&limit=${limit}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Datos recibidos:', data);
+  
+          // Agregar los nuevos personajes recuperados al final de la lista
+          characters = characters.concat(data);
+  
+          // Mostrar solo los personajes según el límite
+          const charactersToShow = characters.slice(offset, offset + limit);
+  
+          // Limpiar el contenedor antes de agregar los nuevos elementos
+          if (offset === 0) {
+            container.innerHTML = ''; // Solo limpiar el contenedor si es la primera carga
+          }
+  
+          // Iterar sobre los datos obtenidos y crear divs para cada elemento
+          charactersToShow.forEach((character, index) => {
+            const box = document.createElement('div');
+            box.classList.add('box');
+            const characterNumber = offset + index + 1; // Número absoluto del personaje
+            box.textContent = `${characterNumber}: ${character.name}`;
+            container.appendChild(box);
+  
+            // Agregar evento de clic al elemento .box
+            box.addEventListener('click', () => {
+              // Redirigir a otro HTML que muestra información sobre el personaje
+              window.location.href = `personaje.html?id=${character.id}`;
+            });
+          });
+  
+          // Si no hay más personajes por cargar, deshabilitar el botón de carga
+          if (characters.length <= offset + limit) {
+            if (loadMoreButton) {
+              loadMoreButton.disabled = true;
+              loadMoreButton.textContent = "No hay más personajes";
+            }
+          }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    };
+  
+    // Cargar los primeros elementos al cargar la página
+    loadItems();
+  
+    // Crear el botón "Mostrar más"
+    loadMoreButton = document.createElement('button');
+    loadMoreButton.textContent = "Mostrar más";
+    loadMoreButton.classList.add('load-more');
+  
+    // Evento click para cargar más elementos
+    loadMoreButton.addEventListener('click', () => {
+      offset += limit; // Incrementar el offset para cargar los siguientes elementos
+      loadItems(); // Llamar a la función loadItems() para cargar más elementos
+    });
+  
+    // Crear un div contenedor para envolver tanto el contenedor de elementos como el botón
+    const wrapperDiv = document.createElement('div');
+    wrapperDiv.classList.add('wrapper');
+  
+    // Insertar el contenedor de elementos y el botón dentro del div contenedor
+    wrapperDiv.appendChild(container);
+    wrapperDiv.appendChild(loadMoreButton);
+  
+    // Insertar el div contenedor en el documento
+    document.body.appendChild(wrapperDiv);
+  });
+  
+
+
+
+//   <!DOCTYPE html>
+// <html lang="es">
+
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <link rel="stylesheet" href="stylePer.css">
+//     <title>Frutas del Diablo</title>
+// </head>
+
+// <body>
+
+//     <div class="contenedor-centralizado">
+//         <h1 class="titulo-registro">Frutas del hakis</h1>
+//         <div id="detalles-personaje">
+//             <!-- Aquí se cargarán los detalles del personaje -->
+//         </div>
+//     </div>
+
+//     <script>
+//         async function traducirTexto(texto, idiomaOrigen, idiomaDestino) {
+//             const url = 'https://deepl-translator.p.rapidapi.com/translate';
+//             const options = {
+//                 method: 'POST',
+//                 headers: {
+//                     'content-type': 'application/json',
+//                     'X-RapidAPI-Key': '39175e90a3msh183f2966f4f2f61p160928jsn06d0d7ce707d',
+//                     'X-RapidAPI-Host': 'deepl-translator.p.rapidapi.com'
+//                 },
+//                 body: JSON.stringify({
+//                     text: texto,
+//                     source_lang: 'EN',
+//                     target_lang: 'ES'
+//                 })
+//             };
+
+//             try {
+//                 const response = await fetch(url, options);
+//                 const result = await response.json();
+//                 return result.translations[0].text;
+//             } catch (error) {
+//                 console.error(error);
+//                 return null;
+//             }
+//         }
+
+//         document.addEventListener('DOMContentLoaded', async () => {
+//             // Obtener el ID del personaje de la URL
+//             const urlParams = new URLSearchParams(window.location.search);
+//             const characterId = urlParams.get('id');
+
+//             // Realizar una solicitud a la API con el ID del personaje y mostrar los detalles
+//             fetch(`https://api.api-onepiece.com/v2/hakis/en/${characterId}`)
+//                 .then(response => response.json())
+//                 .then(async data => {
+//                     // Traducir los detalles del personaje al español
+//                     const descripcionTraducida = await traducirTexto(data.description, 'EN', 'ES');
+
+//                     // Mostrar los detalles del personaje con la descripción traducida
+//                     const detallesPersonaje = document.getElementById('detalles-personaje');
+//                     detallesPersonaje.innerHTML = `               
+//                         <h2>Nombre: ${data.name}</h2>
+//                         <p>Nombre Romano: ${data.roman_name}</p>
+//                         <p>Descripción: ${descripcionTraducida}</p>
+//                         <a href="hakis.html" class="button">volver</a>
+//                     `;
+//                 })
+//                 .catch(error => console.error('Error al cargar los detalles:', error));
+//         });
+//     </script>
+
+// </body>
+
+// </html>
+
+
+
+// <!DOCTYPE html>
+// <html lang="en">
+
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>Personajes</title>
+//     <link rel="stylesheet" href="../style.css">
+//     <script type="text/javascript" src="../session.js"></script>
+//     <script type="text/javascript" src="scriptPer.js" defer></script>
+// </head>
+
+// <body>
+//     <div class="bg_img">
+//         <header>
+//             <div class="logo">
+//                 <a href="../index.html"><img src="../img/Site-logo.png" alt="logo"></a>
+//             </div>
+//             <nav>
+//                 <button type="button" onclick="login2()" id="session">Iniciar Sesion</button>
+//                 <button type="button" onclick="retur2()" id="back" style="display:none">Volver atras</button>
+//             </nav>
+//         </header>
+
+//         <div class="content-wrapper">
+//             <div class="container">
+
+//             </div>
+//         </div>
+
+//         <div class="logCont" id="logCont">
+//             <section id="login" style="display:none">
+//                 <form onsubmit="return login()" method="POST" class="login-form">
+//                     <label for="usuario">Usuario</label>
+//                     <input id="usuario" name='usuario' type="text">
+//                     <label for="clave">Clave</label>
+//                     <input id="clave" name="clave" type="password">
+//                     <input type="submit" value="Iniciar sesión">
+//                 </form>
+//                 <a class="crear-usu" href="editUsu/nuevo.php">Crear nuevo usuario</a>
+//             </section>
+//         </div>
+//     </div>
+
+
+// </body>
+
+// </html>
