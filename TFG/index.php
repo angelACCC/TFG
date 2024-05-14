@@ -79,16 +79,16 @@ if (!isset($_SESSION['username'])) {
                         </div>
                     </div>
                 </label>
-                <input type="radio" name="slide" id="c5" checked>
+                <!-- <input type="radio" name="slide" id="c5" checked>
                 <label for="c5" class="card">
                     <div class="row">
-                        <!-- <div class="icon">5</div> -->
+                         <div class="icon">5</div> 
                         <div class="description">
                             <h4>ARMAS</h4>
                             <a href="vista/armas.php">SEE MORE</a>
                         </div>
                     </div>
-                </label>
+                </label> -->
                 <input type="radio" name="slide" id="c6" checked>
                 <label for="c6" class="card">
                     <div class="row">
@@ -99,16 +99,16 @@ if (!isset($_SESSION['username'])) {
                         </div>
                     </div>
                 </label>
-                <input type="radio" name="slide" id="c7" checked>
+                <!--<input type="radio" name="slide" id="c7" checked>
                 <label for="c7" class="card">
                     <div class="row">
-                        <!-- <div class="icon">7</div> -->
+                         <div class="icon">7</div> 
                         <div class="description">
                             <h4>DIALS</h4>
                             <a href="vista/dials.php">SEE MORE</a>
                         </div>
                     </div>
-                </label>
+                </label>-->
                 <input type="radio" name="slide" id="c8" checked>
                 <label for="c8" class="card">
                     <div class="row">

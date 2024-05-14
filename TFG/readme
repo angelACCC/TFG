@@ -1,12 +1,71 @@
+Mejoras para futuro 
+
+-Implementar contador por categorias
+-salga el total de dinero en carrito a pagar
+-Contar los productos que tienes en el carrito
+-limitador de stock si coges mas de stock te ponga no hay esa cantidad
+-pasar de no mostrar producto a que ponga "esta fuera de stock o agotado"
+-añadir imagenes a la db para las categorias y productos 
+
+//Implementar contador por categorias
+<a href="vista/personajes.php" class="category-link" data-category="personajes">SEE MORE</a>
+<a href="vista/localizaciones.php" class="category-link" data-category="lugares">SEE MORE</a>
+<!-- Las otras categorías -->
+
+document.addEventListener("DOMContentLoaded", function() {
+    const categoryLinks = document.querySelectorAll(".category-link");
+
+    categoryLinks.forEach(function(link) {
+        link.addEventListener("click", function(event) {
+            const category = event.target.dataset.category;
+            registrarClickCategoria(category);
+        });
+    });
+
+    function registrarClickCategoria(categoria) {
+        // Envía la información al servidor utilizando AJAX
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "registrar_clic_categoria.php");
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                console.log("Clic en categoría registrado correctamente.");
+            } else {
+                console.error("Error al registrar clic en categoría.");
+            }
+        };
+        xhr.onerror = function() {
+            console.error("Error de red al registrar clic en categoría.");
+        };
+        xhr.send("categoria=" + encodeURIComponent(categoria));
+    }
+});
 
 
+//Crear count_categoria.php
+<?php
+// Conexión a la base de datos (debes incluir tu archivo de configuración de la base de datos)
+require_once 'db.php';
+
+// Obtener la categoría enviada desde el cliente
+$categoria = $_POST["categoria"];
+
+// Actualizar el contador de clics para la categoría en la base de datos
+$sql = "UPDATE clics_categorias SET contador = contador + 1 WHERE categoria = ?";
+$stmt = $db->prepare($sql);
+$stmt->execute([$categoria]);
+
+// Respuesta al cliente
+http_response_code(200); // OK
+?>
 
 
-
-
-
-
-
+-Implementar contador por categorias
+-salga el total de dinero en ccarrito a pagar
+-y contar los productos que tienes en el carrito
+-funcion eliminar producto db
+-limitador de stock si coges mas de stock te ponga no hay tanto
+-pasar de no mostrar producto a que este fuera de stock o agotado
 
 
 
