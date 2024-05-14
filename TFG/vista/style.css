@@ -1,0 +1,161 @@
+html, body {
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+    /* display: flex; */
+    justify-content: center; 
+    align-items: center; 
+    background: #f7f7f7; 
+}
+
+.bg_img {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+main {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #9e9e9e;
+
+}
+#contenedorChat {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border: 1px solid #000;
+    z-index: 1000;
+    display: none;
+}
+
+#content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+
+/* #mensajes {
+    height: 80%;
+    overflow-y: auto;
+}
+
+.chatOculto {
+    display: none;
+}
+
+.chatVisible {
+    display: block;
+}
+
+.content {
+    position: relative; 
+    z-index: 1;
+} */
+
+#comment-section {
+    max-width: 600px;
+    width: 700px;
+    max-height: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+#comment-form {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#comment-text {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+.comentarios div {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+
+
+
+/* .comentarios {
+    
+} */
+
+/* footer {
+    
+} */
+
+
+/* .container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+   
+}
+
+.card {
+    flex: 1;
+    
+}
+
+.card label {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+       
+    }
+}
+
+.contenedor {
+    display: flex;
+    background-color: black;
+}
+
+.card {
+    width: 50%;
+    position: relative;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.description {
+    padding: 10px;
+}
+
+.description h4 {
+    margin: 0;
+}
+
+.description a {
+    display: block;
+    text-align: center;
+} */

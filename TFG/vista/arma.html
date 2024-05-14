@@ -1,0 +1,47 @@
+<!-- verificacion con el php -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylePer.css">
+    <title>Detalles del arma</title>
+</head>
+
+<body>
+
+
+    <div class="contenedor-centralizado">
+        <h1 class="titulo-registro">Detalles del Arma</h1>
+        <div id="personaje-det">
+          <!-- Aquí se cargarán los detalles del personaje -->
+        </div>
+      </div>
+
+    <script>
+        // Obtener el ID del personaje de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const characterName = urlParams.get('name');
+
+        // Hacer una solicitud a la API con el ID del personaje y mostrar los detalles
+        fetch(`https://api.api-onepiece.com/v2/swords/en/${characterName}`)
+            .then(response => response.json())
+            .then(data => {
+                const personajeDetInfo = document.getElementById('personaje-det');
+                personajeDetInfo.innerHTML = `               
+        <h2>Nombre: ${data.name}</h2>
+        <p>Nombre Roman: ${data.roman_name}</p>
+        <p>Tipo de arma: ${data.type}</p>
+        <p>Nombre de la crew: ${data.category}</p>
+        <p>Si esta destruida o no: ${data.isDestroy}</p>
+        <a href="armas.php" class="button">back</a>
+      `;
+            })
+            .catch(error => console.error('Error al cargar los detalles:', error));
+    </script>
+
+</body>
+
+</html>
