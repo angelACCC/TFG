@@ -58,6 +58,7 @@ function crear_correo($carrito, $pedido, $correo)
         $des = $producto['descripcion'];
         $precio = $producto['precio'];
         $uds = $_SESSION['carrito'][$cod];
+        eliminarproducto($cod, $uds);
         $precioTotal += $precio * $uds;
         $texto .= "<tr><th>$nom</th><th>$des</th><th>$precio</th><th>$uds</th></tr>";
     }
@@ -90,25 +91,3 @@ function enviar_correo_multiples($lista_correos, $cuerpo, $asunto = ""){
         return true;
     }
 }
-
-
-
-
-// if (!empty($_POST)) {
-    //     try {
-            
-
-        
-    //         $mail->addAddress($_POST['destinatario'], $_POST['nambreDestinatario']); 
-       
-    //         $mail->isHTML(true); 
-    //         
-    //         $mail->Body = $_POST['body'];
-    //         $mail->AltBody = $_POST['body'];
-    //         $mail->send(); 
-    //         echo 'El mensaje se ha enviado';
-    //     } catch (Exception $e) {
-    //         echo "El mensaje no se ha enviado. Mailer Error: {$mail->ErrorInfo}";
-    //     }
-    
-    // }
