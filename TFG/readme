@@ -6,6 +6,40 @@ Mejoras para futuro
 -limitador de stock si coges mas de stock te ponga no hay esa cantidad
 -pasar de no mostrar producto a que ponga "esta fuera de stock o agotado"
 -añadir imagenes a la db para las categorias y productos 
+-Añadir una cuenta admin para reponer o gestionar los usuarios desde la pagina
+-Añadir un contador para los productos mas comprados
+-Implementar un chatbot para mejor interacion con los usuarios
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Implementar contador por categorias
 <a href="vista/personajes.php" class="category-link" data-category="personajes">SEE MORE</a>
