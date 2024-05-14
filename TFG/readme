@@ -1,5 +1,7 @@
 Mejoras para futuro 
 
+-Poner en el login cuando falle el usuario, email o pass un mensaje de error y ademas cuando salgas o inicies de session que notifique
+-Poner en registro cuando se ha registrado correctamente
 -Implementar contador por categorias
 -salga el total de dinero en carrito a pagar
 -Contar los productos que tienes en el carrito
@@ -9,6 +11,7 @@ Mejoras para futuro
 -Añadir una cuenta admin para reponer o gestionar los usuarios desde la pagina
 -Añadir un contador para los productos mas comprados
 -Implementar un chatbot para mejor interacion con los usuarios
+-Implementar un sistema de ingreso de dinero verificado
 
 
 
