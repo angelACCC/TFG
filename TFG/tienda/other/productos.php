@@ -1,8 +1,9 @@
 <?php
 require_once 'db.php';
+require 'session.php';
+// session_start();
 /*comprueba que el usuario haya abierto sesión o
 devuelve*/
-// require 'session.php';
 // if (!comprobar_sesion())
 //     return;
 
@@ -17,16 +18,7 @@ $productos_array = [];
 $productos = cargar_productos_categoria(
     $_GET['id']
 );
-function anadirProd($texto, $cod, $codCat)
-{
-    return "
-    <form action='anadir.php' method='post'>
-        <input type='hidden' name='codProd' value='$cod'>
-        <input type='hidden' name='codCat' value='{$_GET['id']}'>
-        <input type='text' name='unidades' value='1'>
-        <input type='submit' value='$texto'>
-    </form>";
-}
+
 
 ?>
 
@@ -36,7 +28,7 @@ function anadirProd($texto, $cod, $codCat)
 <head>
 </head>
 <header>
-    <?php require 'cabecera.php' ?>
+    <?php require 'cabecera.php'?>
 </header>
 
 <body>
@@ -66,3 +58,18 @@ function anadirProd($texto, $cod, $codCat)
 </body>
 
 </html>
+
+<?php
+
+function anadirProd($texto, $cod, $codCat)
+{
+    return "
+    <form action='anadir.php' method='post'>
+        <input type='hidden' name='codProd' value='$cod'>
+        <input type='hidden' name='codCat' value='{$_GET['id']}'>
+        <input type='text' name='unidades' value='1'>
+        <input type='submit' value='$texto'>
+    </form>";
+}
+
+?>

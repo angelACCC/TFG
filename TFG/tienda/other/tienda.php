@@ -1,6 +1,6 @@
 <?php 
-require 'session.php'
-
+require 'session.php';
+require 'db.php';
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ require 'session.php'
         <header>
             <?php require 'cabecera.php' ?>
         </header>
-        <h2 id="titulo">CATEGORIAS</h2>
+        <h2 id="titulo"></h2>
         <section id="contenido">
             <?php require 'categorias.php' ?>
         </section>
